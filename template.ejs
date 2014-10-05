@@ -1,0 +1,16 @@
+<table class="sudoku">
+  <% for(var i = 0; i < 3; ++i) { %>
+  <table class="row">
+    <% for(var j = 0; j < 3; ++j) { %>
+    <table class='block'>
+      <% for(var k = 0; k < 3; ++k) { %>
+      <tr>
+        <% for(var l = 0; l < 3; ++l) { %>
+        <td id="cell-<%= l + 3*k + 9*j + 27*i %>"><%= l %></td>
+        <% } %>
+      </tr>
+      <% } %>
+    </table>
+    <% } %>
+  <% } %>
+</table>

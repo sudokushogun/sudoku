@@ -1,0 +1,14 @@
+<head>
+  <title>Sudoku fun</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="ejs_production.js"></script>
+  <script src="logic.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <script type="text/javascript">
+    var bodyTemplate = new EJS({url: 'template.ejs'}).render(shown);
+    document.write(bodyTemplate);
+  </script>
+
+</body>

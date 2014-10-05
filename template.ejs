@@ -1,3 +1,7 @@
+<%
+  var id, row, column, char;
+%>
+
 <table class="sudoku">
   <% for(var i = 0; i < 3; ++i) { %>
   <table class="row">
@@ -5,8 +9,18 @@
     <table class='block'>
       <% for(var k = 0; k < 3; ++k) { %>
       <tr>
-        <% for(var l = 0; l < 3; ++l) { %>
-        <td id="cell-<%= l + 3*k + 9*j + 27*i %>"><%= l %></td>
+        <% for(var l = 0; l < 3; ++l) {
+            id = l + 3*k + 9*j + 27*i;
+            row = Math.floor(id / 9);
+            column = id % 9;
+            console.log(id, row, column);
+            if (shown[row][column] !== 0) { //yes 0 is falsy, but explicit check here
+              char = shown[row][column];
+            } else {
+              char = '&nbsp;';
+            }
+        %>
+          <td id="cell-<%= id %>"><%= char %></td>
         <% } %>
       </tr>
       <% } %>

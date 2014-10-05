@@ -1,4 +1,5 @@
 var shown = [
+        //0 marks empty sudoku squares
         [5, 3, 0, 0, 7, 0, 0, 0, 0],
         [6, 0, 0, 1, 9, 5, 0, 0, 0],
         [0, 9, 8, 0, 0, 0, 0, 6, 0], 
@@ -21,6 +22,12 @@ var shown = [
         [3, 4, 5, 2, 8, 6, 1, 7, 9]
     ];
 
+function swap(container, x, y) {
+    var temp = container[x];
+    container[x] = container[y];
+    container[y] = temp;
+}
+
 function permuteBoard(partialBoard, fullBoard) {
     //things to permute:
     //permute alphabet
@@ -30,9 +37,17 @@ function permuteBoard(partialBoard, fullBoard) {
     //permute rows within block
     //permute columns within block
 
-    return;
+    //permute alphabet
+    var alpha = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], //i maps to alpha[i], so 0 maps to 0 to preserve empty squares
+        seq = String(Math.ceil(Math.random()*1e9)).split(''), //9-digit random number sequence
+        temp;
+
+    seq = seq.map(function(i){ return (i % 9)+1;}); //narrow range to numbers between 1 - 9
+
+    for(var i = 0; 9 > i; ++i) {
+        swap(alpha, i+1, seq[i]);   //shuffle alphabet array based on sequence
+    }
+    return alpha;
 }
 
-function permuteBlock() {
-    return;
-}
+console.log(permuteBoard(shown, solution));

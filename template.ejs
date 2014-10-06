@@ -12,7 +12,7 @@
           if (shown[row][column] !== 0) { //yes 0 is falsy, but explicit check here
             char = shown[row][column];
           } else {
-            char = '&nbsp;';
+            char = '<input size="2" autocomplete="off" maxlength="1" onkeypress="testme(event)">';
           }
       %>
         <td id="cell-<%= id %>"><%= char %></td>
@@ -21,5 +21,6 @@
     <% } %>
   </table>
   <% } %>
+</div>
 <% } %>
 </div>

@@ -1,7 +1,8 @@
 .block, td {
     border: 1px solid rosybrown;
     border-collapse: collapse;
-    padding: 5px 15px 5px 15px;
+    //padding: 5px 15px 5px 15px;
+    padding: 2px 5px 2px 9px;
 }
 
 td {
@@ -9,8 +10,11 @@ td {
 }
 
 .sudoku {
-  table-layout: fixed;
-  width: 500px;
+  position: absolute;
+  left: 5px;
+  width: 100%;
+  min-width: 320px;
+  max-width: 568px;
   font-size: 1em;
   font-family: monospace;
 }
@@ -19,10 +23,28 @@ td {
   clear: left;
 }
 
+.block, input {
+  text-align: center;
+}
+
 .block {
   font-size: 2em;
   border: 3px solid palegreen;
   margin-left: -1;
   margin-top: -2px;
+  width: 33%;
   float: left;
+}
+
+input {
+  border: none;
+  font-size: 1em;
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+input:focus {
+  outline: none;
 }

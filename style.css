@@ -12,6 +12,7 @@ td {
   table-layout: fixed;
   width: 500px;
   font-size: 1em;
+  font-family: monospace;
 }
 
 .row {

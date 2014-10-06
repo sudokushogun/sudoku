@@ -1,0 +1,66 @@
+@outerborder: 3px solid palegreen;
+@innerborder: 3px solid palegreen;
+@innergrid: 1px solid rosybrown;
+
+td {
+    border: @innergrid;
+    border-collapse: collapse;
+    padding: 5px 15px 5px 15px;
+}
+
+td {
+    width: 33%;
+}
+
+.sudoku {
+    table-layout: fixed;
+    width: 500px;
+    font-size: 2em;
+
+    .table-top { border-top: @outerborder }
+    .table-bottom { border-bottom: @outerborder }
+    .table-left { border-left: @outerborder }
+    .table-right { border-right: @outerborder }
+
+    .inner-top{ border-top: @innerborder}
+    .inner-bottom{ border-bottom: 0}
+    .inner-left, .inner-right {
+        position: relative;
+    }
+    .inner-left{ border-left: @innerborder}
+    .inner-right{ border-right: 0}
+/*    .test {
+        border: 10px solid #E5E5E5;
+        border-left:0;
+        position:relative;
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+    }
+    .inner-right:before, .inner-right:after {
+        display:block;
+        content:"";
+        color:transparent;
+        font-size:0;
+        height:100%;
+        position:absolute;
+        padding:10px 0;
+        top:0px;
+        bottom:0px;
+        box-sizing: border-box;
+    }
+
+    .inner-right:before {
+        border-left:10px solid #f24495;
+        left:0;
+    }
+
+    .inner-right:after {
+        right:-10px;
+        border-left:10px solid lime;
+    }*/
+}
+
+.row {
+  clear: left;
+}

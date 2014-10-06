@@ -1,30 +1,71 @@
-<%
+<!--<%
   var id, row, column, char;
+  function outerBorderClass(id) {
+    var styleArray = [],
+        innerMod = 3,
+        squareMod = 9,
+        vertVal = Math.floor(id / 9),
+        vertMod = vertVal % 3;
+
+    if (id < squareMod) {
+      styleArray.push('table-top');
+    } else if (id >= 72) {
+      styleArray.push('table-bottom');
+    } else if (!vertMod) {
+      styleArray.push('inner-top');
+    } else if (vertMod === innerMod - 1) {
+      styleArray.push('inner-bottom');
+    }
+
+    if (!(id % squareMod)) {
+      styleArray.push('table-left');
+    } else if (id % squareMod === squareMod - 1) {
+      styleArray.push('table-right');
+    } else if (!(id % innerMod)) {
+      styleArray.push('inner-left');
+    } else if (id % innerMod == innerMod - 1) {
+      styleArray.push('inner-right');
+    }
+    console.log(id, styleArray);
+    return styleArray.join(' ');
+  }
 %>
 
-<table class="sudoku">
-  <% for(var i = 0; i < 3; ++i) { %>
-  <table class="row">
-    <% for(var j = 0; j < 3; ++j) { %>
-    <table class='block'>
-      <% for(var k = 0; k < 3; ++k) { %>
-      <tr>
-        <% for(var l = 0; l < 3; ++l) {
-            id = l + 3*k + 9*j + 27*i;
-            row = Math.floor(id / 9);
-            column = id % 9;
-            console.log(id, row, column);
-            if (shown[row][column] !== 0) { //yes 0 is falsy, but explicit check here
-              char = shown[row][column];
-            } else {
-              char = '&nbsp;';
-            }
-        %>
-          <td id="cell-<%= id %>"><%= char %></td>
-        <% } %>
-      </tr>
-      <% } %>
-    </table>
-    <% } %>
+<table class='sudoku' cellspacing=0>
+<% for(var i = 0; i < 9; ++i) { %>
+  <tr class="row">
+  <% for(var j = 0; j < 9; ++j) {
+    id = 9*i + j;
+    char = id;
+  %>
+    <td id="cell-<%= id %>" class="<%= outerBorderClass(id) %>"><%= char %></td>
   <% } %>
-</table>
+  </tr>
+<% } %>
+</table>-->
+
+<div class='sudoku'>
+<% for(var i = 0; i < 3; ++i) { %>
+<div class="row">
+  <% for(var j = 0; j < 3; ++j) { %>
+  <table class='block'>
+    <% for(var k = 0; k < 3; ++k) { %>
+    <tr>
+      <% for(var l = 0; l < 3; ++l) {
+          id = l + 3*j + 9*k + 27*i;
+          row = Math.floor(id / 9);
+          column = id % 9;
+          if (shown[row][column] !== 0) { //yes 0 is falsy, but explicit check here
+            char = shown[row][column];
+          } else {
+            char = '&nbsp;';
+          }
+      %>
+        <td id="cell-<%= id %>"><%= char %></td>
+      <% } %>
+    </tr>
+    <% } %>
+  </table>
+  <% } %>
+<% } %>
+</div>

@@ -31,13 +31,17 @@ function lookup(matrix, pos) {
 
 function checkSolution(event) {
     //check typed user entry against position in solution matrix
-    var funfun = event,
-        cellId = funfun.srcElement.parentElement.id.substr(5),
-        keypress = Number(String.fromCharCode(event.keyCode));
+    var cellId = event.srcElement.parentElement.id.substr(5),
+        keypress = Number(String.fromCharCode(event.keyCode)),
+        correctVal = lookup(solution, cellId);
 
     console.log(keypress, cellId, lookup(solution, cellId));
     if (lookup(solution, cellId) !== keypress) {
         event.preventDefault();
+    } else {
+        event.srcElement.disabled = true;
+        event.srcElement.value = correctVal;
+        event.srcElement.blur();
     }
 }
 

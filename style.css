@@ -45,3 +45,10 @@ input {
 input:focus {
   outline: none;
 }
+
+input:disabled {
+  color: black;
+  -webkit-text-fill-color: black;
+  background-color: white;
+  opacity: 1.0;
+}

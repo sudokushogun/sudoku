@@ -1,7 +1,6 @@
 .block, td {
     border: 1px solid rosybrown;
     border-collapse: collapse;
-    //padding: 5px 15px 5px 15px;
     padding: 2px 5px 2px 9px;
 }
 
@@ -10,8 +9,6 @@ td {
 }
 
 .sudoku {
-  position: absolute;
-  left: 5px;
   width: 100%;
   min-width: 320px;
   max-width: 568px;

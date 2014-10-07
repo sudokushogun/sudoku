@@ -31,17 +31,17 @@ function lookup(matrix, pos) {
 
 function checkSolution(event) {
     //check typed user entry against position in solution matrix
-    var cellId = event.srcElement.parentElement.id.substr(5),
-        keypress = Number(String.fromCharCode(event.keyCode)),
+    var source = event.target || event.srcElement,
+        cellId = source.parentElement.id.substr(5),
+        keypress = Number(String.fromCharCode(event.keyCode || event.charCode)),
         correctVal = lookup(solution, cellId);
 
-    console.log(keypress, cellId, lookup(solution, cellId));
     if (lookup(solution, cellId) !== keypress) {
         event.preventDefault();
     } else {
-        event.srcElement.disabled = true;
-        event.srcElement.value = correctVal;
-        event.srcElement.blur();
+        source.disabled = true;
+        source.value = correctVal;
+        source.blur();
     }
 }
 
@@ -117,5 +117,4 @@ function permuteNumbers(partialBoard, fullBoard) {
     }
 }
 
-//console.log(permuteBoard(shown, solution));
 permuteBoard(shown, solution);

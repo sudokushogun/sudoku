@@ -1,16 +1,12 @@
-.block, td {
-  padding: 2px 5px 2px 9px;
-  border: 1px solid rosybrown;
-  border-collapse: collapse;
-}
-
 td {
   width: 33%;
+  padding: 2px 5px 2px 9px;
+  border: 1px solid rosybrown;
 }
 
 .sudoku {
   width: 100%;
-  min-width: 320px; /* using mobile min and max sizes from portrait and landscape modes */
+  min-width: 320px; /* using min and max sizes from portrait and landscape modes in mobile */
   max-width: 568px;
   font-size: 1em;
   font-family: monospace;
@@ -29,6 +25,7 @@ td {
   margin-top: -2px;
   width: 33%;
   border: 3px solid palegreen;
+  border-collapse: collapse;
   float: left;
   font-size: 2em;
 }
@@ -50,23 +47,19 @@ input:focus {
 
 input:disabled {
   color: black;
-  /* ensure that disabled inputs look like normal text*/
+  /* ensure that disabled inputs look like normal text - using fill color for mobile quirks*/
   -webkit-text-fill-color: black;
-  -moz-text-fill-color: black;
-  -ms-text-fill-color: black;
-  -o-text-fill-color: black;
   background-color: white;
   opacity: 1.0;
 }
 
-/*kill input number spinners on desktop*/
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+/*kill input number spinners on Webkit desktop*/
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0; /* kill any leftover margin on hidden spinner*/
 }
 
+/*Firefox-specific spinner killing*/
 input[type=number] {
-  -moz-appearance:textfield;
-  -webkit-appearance:textfield;
+  -moz-appearance: textfield;
 }

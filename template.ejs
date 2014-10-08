@@ -1,26 +1,26 @@
 <div class='sudoku'>
 <% for(var i = 0; i < 3; ++i) { %>
-<div class="row">
-  <% for(var j = 0; j < 3; ++j) { %>
-  <table class='block'>
-    <% for(var k = 0; k < 3; ++k) { %>
-    <tr>
-      <% for(var l = 0; l < 3; ++l) {
-          id = l + 3*j + 9*k + 27*i;
-          row = Math.floor(id / 9);
-          column = id % 9;
-          if (shown[row][column] !== 0) { //yes 0 is falsy, but explicit check here
-            char = shown[row][column];
-          } else {
-            char = '<input size="2" autocomplete="off" maxlength="1" onkeypress="checkSolution(event)">';
-          }
-      %>
-        <td id="cell-<%= id %>"><%= char %></td>
-      <% } %>
-    </tr>
+  <div class="row">
+    <% for(var j = 0; j < 3; ++j) { %>
+      <table class='block'>
+        <% for(var k = 0; k < 3; ++k) { %>
+          <tr>
+            <% for(var l = 0; l < 3; ++l) {
+                id = l + 3*j + 9*k + 27*i;
+                row = Math.floor(id / 9);
+                column = id % 9;
+                if (shown[row][column] !== 0) { //yes 0 is falsy, but explicit check here
+                  char = shown[row][column];
+                } else {
+                  char = '<input size="2" autocomplete="off" maxlength="1" onkeypress="checkSolution(event)">';
+                }
+            %>
+              <td id="cell-<%= id %>"><%= char %></td>
+            <% } %>
+          </tr>
+        <% } %>
+      </table>
     <% } %>
-  </table>
-  <% } %>
-</div>
+  </div>
 <% } %>
 </div>

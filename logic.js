@@ -1,5 +1,5 @@
+//0 marks empty sudoku squares
 var shown = [
-        //0 marks empty sudoku squares
         [5, 3, 0, 0, 7, 0, 0, 0, 0],
         [6, 0, 0, 1, 9, 5, 0, 0, 0],
         [0, 9, 8, 0, 0, 0, 0, 6, 0], 
@@ -44,7 +44,6 @@ function checkSolution(event) {
         source.blur();
     }
 }
-
 
 function swapElements(firstContainer, firstIndex, secondContainer, secondIndex) {
     var temp = firstContainer[firstIndex];

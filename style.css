@@ -1,7 +1,7 @@
 .block, td {
-    border: 1px solid rosybrown;
-    border-collapse: collapse;
-    padding: 2px 5px 2px 9px;
+  padding: 2px 5px 2px 9px;
+  border: 1px solid rosybrown;
+  border-collapse: collapse;
 }
 
 td {
@@ -25,21 +25,23 @@ td {
 }
 
 .block {
-  font-size: 2em;
-  border: 3px solid palegreen;
   margin-left: -1;
   margin-top: -2px;
   width: 33%;
+  border: 3px solid palegreen;
   float: left;
+  font-size: 2em;
 }
 
 input {
-  border: none;
-  font-size: 1em;
-  font-family: monospace;
   margin: 0;
   padding: 0;
   width: 100%;
+  border: none;
+  color: black;
+  background-color: white;
+  font-size: 1em;
+  font-family: monospace;
 }
 
 input:focus {
@@ -48,7 +50,23 @@ input:focus {
 
 input:disabled {
   color: black;
+  /* ensure that disabled inputs look like normal text*/
   -webkit-text-fill-color: black;
+  -moz-text-fill-color: black;
+  -ms-text-fill-color: black;
+  -o-text-fill-color: black;
   background-color: white;
   opacity: 1.0;
+}
+
+/*kill input number spinners on desktop*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* kill any leftover margin on hidden spinner*/
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+  -webkit-appearance:textfield;
 }

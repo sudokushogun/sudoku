@@ -10,7 +10,7 @@ td {
 
 .sudoku {
   width: 100%;
-  min-width: 320px;
+  min-width: 320px; /* using mobile min and max sizes from portrait and landscape modes */
   max-width: 568px;
   font-size: 1em;
   font-family: monospace;
